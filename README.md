@@ -242,9 +242,6 @@ else:
 
 ![image](https://github.com/user-attachments/assets/6cf6657e-eedb-4042-96c2-a51bc05618df)
 
-<br>
-<br>
-
 ## vii)Image Flipping
 ### Program:
 
