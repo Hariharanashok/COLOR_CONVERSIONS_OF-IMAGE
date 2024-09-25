@@ -53,15 +53,14 @@ o	Save the final modified image to your local directory.
 
 
 ##### Program:
-### Developed By: Hariharan A
+### Developed By: HARIHARAN A
 ### Register Number: 212222100012
 
 
-## Output:
+## i)Read and Display an Image
+### Program:
 
-### i)Read and Display an Image
-
-```
+```python
 import cv2
 # Read the image
 image = cv2.imread('Lokesh.JPG')
@@ -72,12 +71,11 @@ cv2.waitKey(0)
 # Destroy all windows created by OpenCV
 cv2.destroyAllWindows()
 ```
+## Output:
 ![image](https://github.com/user-attachments/assets/60780b34-6a32-45f2-a036-4569da419421)
 
-<br>
-<br>
-
-### ii)Draw Shapes and Add Text
+## ii)Draw Shapes and Add Text
+### Program:
 
 ```python
 import cv2
@@ -128,6 +126,7 @@ cv2.waitKey(0)
 # Clean up windows
 cv2.destroyAllWindows()
 ```
+## Output:
 ![image](https://github.com/user-attachments/assets/737204dd-70fc-4d81-b73c-4441b4d7fc3f)
 
 ![image](https://github.com/user-attachments/assets/451165da-7f1f-436b-b713-044f2388f072)
@@ -136,100 +135,120 @@ cv2.destroyAllWindows()
 
 ![image](https://github.com/user-attachments/assets/3290cf47-a4cb-4976-999b-553d1174c7c6)
 
+## iii)Image Color Conversion
+### Program:
 
+```python
+import cv2
 
-<br>
-<br>
-
-### iii)Image Color Conversion
-
-```
 # Read the image
 image = cv2.imread("Lokesh.JPG")
 
 # Convert to HSV color space
 img_hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-# Convert to grayscale
-img = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-
-
-# Display the HSV image
 cv2.imshow('Image Window (HSV)', img_hsv)
+cv2.imwrite('Lokesh_HSV.jpg', img_hsv)  # Save HSV image
 cv2.waitKey(0)
-cv2.destroyAllWindows()
+
+# Convert to grayscale
+img_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+cv2.imshow('Grayscale Image', img_gray)
+cv2.imwrite('Lokesh_Gray.jpg', img_gray)  # Save grayscale image
+cv2.waitKey(0)
 
 # Convert the image from RGB to YCrCb and display it
 ycrcb_image = cv2.cvtColor(image, cv2.COLOR_BGR2YCrCb)
 cv2.imshow('YCrCb Image', ycrcb_image)
+cv2.imwrite('Lokesh_YCrCb.jpg', ycrcb_image)  # Save YCrCb image
 cv2.waitKey(0)
 
 # Convert the HSV image back to RGB and display it
 hsv_to_rgb_image = cv2.cvtColor(img_hsv, cv2.COLOR_HSV2BGR)
 cv2.imshow('HSV to RGB Image', hsv_to_rgb_image)
+cv2.imwrite('Lokesh_HSV_to_RGB.jpg', hsv_to_rgb_image)  # Save the converted RGB image
 cv2.waitKey(0)
+
+# Clean up
+cv2.destroyAllWindows()
 ```
+## Output:
 ### Convert the image from RGB to HSV and display it:
 ![image](https://github.com/user-attachments/assets/14f94f43-5d4b-4d42-81fd-1d9ec2e00982)
 
-
-
 ### Convert the image from RGB to GRAY and display it:
+![image](https://github.com/user-attachments/assets/5ce97210-4fac-4a63-98bf-565901fb5c49)
 
 ### Convert the image from RGB to YCrCb and display it:
-
+![image](https://github.com/user-attachments/assets/348d7ab1-d6d7-4c4f-b24c-5aa0afa74880)
 
 ### Convert the HSV image back to RGB and display it:
+![image](https://github.com/user-attachments/assets/627ac673-08df-40ba-b08d-7606cf014a16)
 
+## iv)Access and Manipulate Image Pixels
+### Program:
 
-<br>
-<br>
-
-### iv)Access and Manipulate Image Pixels
-
-```
-# Step 4: Access and Manipulate Image Pixels
+```python
+import cv2
+image = cv2.imread('Lokesh.jpg')
 # Access and print the value of the pixel at coordinates (100, 100)
 pixel_value = image[100, 100]
 print(f"Pixel value at (100, 100): {pixel_value}")
-
-# Modify the color of the pixel at (200, 200) to white
+# Modify the color of the pixel at (200, 200) to white (255, 255, 255)
 image[200, 200] = [255, 255, 255]
-print(f"Modified pixel value at (200, 200): {image[200, 200]}")
+# Find and print the modified pixel value
+modified_pixel_value = image[200, 200]
+print(f"Modified pixel value at (200, 200): {modified_pixel_value}")
+# Save the modified image
+cv2.imwrite('modified_image.jpg', image)
 ```
-![image](https://github.com/user-attachments/assets/66bf0b1a-3b5a-4da3-a159-90b507f5eeed)
-<br>
-<br>
+## Output:
+![Screenshot 2024-09-25 091415](https://github.com/user-attachments/assets/ce6bf38b-0d10-4b67-9def-a4a40e374c0e)
 
-### v)Image Resizing
-```
+## v)Image Resizing
+### Program:
+
+```python
 # Image Resizing
 # Resize the original image to half its size and display it
 resized_image = cv2.resize(image, (image.shape[1] // 2, image.shape[0] // 2))
 cv2.imshow('Resized Image', resized_image)
 cv2.waitKey(0)
 ```
-![image](https://github.com/user-attachments/assets/56c20463-efc2-4869-b6a3-e50fda8cc4fa)
+## Output:
+![image](https://github.com/user-attachments/assets/feb6684c-ff46-4c33-9a2f-76223c7c50cb)
 
 <br>
 <br>
 
-### vi)Image Cropping:
+## vi)Image Cropping:
+### Program:
 
-```
+```python
 # Image Cropping
-# Crop a region of interest (100x100 pixels starting at (50, 50)) and display it
-roi = image[50:150, 50:150]
-cv2.imshow('Cropped ROI Image', roi)
-cv2.waitKey(0)
+# Check if the image was loaded successfully
+if image is None:
+    print("Error: The image file could not be loaded. Check the file path and format.")
+else:
+    # Crop a region of interest (100x100 pixels starting at (50, 50))
+    roi = image[50:150, 50:150]
+    # Display the cropped image
+    cv2.imshow('Cropped ROI Image', roi)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+    # Optionally, save the cropped image
+    cv2.imwrite('cropped_image.jpg', roi)
 ```
-![image](https://github.com/user-attachments/assets/c9f1404f-7951-4326-bc1b-efa8acb57da6)
+## Output:
+
+![image](https://github.com/user-attachments/assets/6cf6657e-eedb-4042-96c2-a51bc05618df)
 
 <br>
 <br>
 
-### vii)Image Flipping
+## vii)Image Flipping
+### Program:
 
-```
+```python
 # Flip the original image horizontally and display it
 flipped_horizontally = cv2.flip(image, 1)
 cv2.imshow('Horizontally Flipped Image', flipped_horizontally)
@@ -240,27 +259,25 @@ flipped_vertically = cv2.flip(image, 0)
 cv2.imshow('Vertically Flipped Image', flipped_vertically)
 cv2.waitKey(0)
 ```
-
 ### Flip the original image horizontally and display it:
-![image](https://github.com/user-attachments/assets/afc3e98b-15ef-4188-a3c9-b281eeae8db6)
+## Output:
+![image](https://github.com/user-attachments/assets/5131d0f9-ace7-47d2-b5a4-752a5b6dcf96)
 
 ### Flip the original image vertically and display it:
-![image](https://github.com/user-attachments/assets/07e2be4b-5245-4cc6-aa72-05e060659bc4)
+## Output:
+![image](https://github.com/user-attachments/assets/64dfe874-a6e4-4066-8535-4132c721bb38)
 
-<br>
-<br>
+## viii)Write and Save the Modified Image
+### Program:
 
-### viii)Write and Save the Modified Image
-
-```
+```python
 # Step 8: Write and Save the Modified Image
 output_path = 'output.jpg'
 cv2.imwrite(output_path, image_with_text)
 print(f"Modified image saved as {output_path}")
 ```
-![image](https://github.com/user-attachments/assets/6067a52f-78b8-464b-a93c-b15960bb302d)
-<br>
-<br>
+## Output:
+![image](https://github.com/user-attachments/assets/e771e2d7-3471-485e-a925-47fc72049848)
 
 ## Result:
 Thus the images are read, displayed, and written ,and color conversion was performed  successfully using the python program.
