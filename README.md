@@ -74,6 +74,7 @@ cv2.destroyAllWindows()
 ## Output:
 ![image](https://github.com/user-attachments/assets/60780b34-6a32-45f2-a036-4569da419421)
 
+
 ## ii)Draw Shapes and Add Text
 ### Program:
 
@@ -135,6 +136,7 @@ cv2.destroyAllWindows()
 
 ![image](https://github.com/user-attachments/assets/3290cf47-a4cb-4976-999b-553d1174c7c6)
 
+
 ## iii)Image Color Conversion
 ### Program:
 
@@ -184,6 +186,7 @@ cv2.destroyAllWindows()
 ### Convert the HSV image back to RGB and display it:
 ![image](https://github.com/user-attachments/assets/627ac673-08df-40ba-b08d-7606cf014a16)
 
+
 ## iv)Access and Manipulate Image Pixels
 ### Program:
 
@@ -203,6 +206,7 @@ cv2.imwrite('modified_image.jpg', image)
 ```
 ## Output:
 ![Screenshot 2024-09-25 091415](https://github.com/user-attachments/assets/ce6bf38b-0d10-4b67-9def-a4a40e374c0e)
+
 
 ## v)Image Resizing
 ### Program:
@@ -242,6 +246,7 @@ else:
 
 ![image](https://github.com/user-attachments/assets/6cf6657e-eedb-4042-96c2-a51bc05618df)
 
+
 ## vii)Image Flipping
 ### Program:
 
@@ -263,6 +268,7 @@ cv2.waitKey(0)
 ### Flip the original image vertically and display it:
 ## Output:
 ![image](https://github.com/user-attachments/assets/64dfe874-a6e4-4066-8535-4132c721bb38)
+
 
 ## viii)Write and Save the Modified Image
 ### Program:
